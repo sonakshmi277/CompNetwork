@@ -1,5 +1,5 @@
 INTER PROCESS COMMUNICATION (IPC):
     -Communication between two or more processes without disturbing each other's flow of execution.
     Two types (processes):
-        -Independent : Does not gets effected 
-        -Cooperative
+        -Independent : Does not get effected by other processes. Hence does not need IPC as they do not communicate. 
+        -Cooperative : Does get effected by other processes. Need IPC
