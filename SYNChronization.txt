@@ -3,7 +3,7 @@ among concurrent processes or threads to avoid conflicts and ensure data consist
 
 Conditions that require Synchronization:
 
-1. Critical section: It is the part of the IPC where shared resources are accessed. 
+1. Critical section: It is the part of the code where shared resources are accessed. 
                        Only one process can execute the critical section at a given point of time.
                        If there are no shared resources, then no need of synchronization mechanisms.
 2. Race condition: It is a situation wherein processes are trying to access the critical section and the final result depends on the 
@@ -58,7 +58,8 @@ The Dining Philosophers Problem is a classic synchronization problem that illust
 In this problem, five philosophers sit around a circular table, each alternating between thinking and eating. 
 In front of each philosopher is a chopstick, and to eat, a philosopher must pick up both the left and right chopsticks. 
 Since the chopsticks are shared, this can lead to deadlock if every philosopher picks up their left chopstick at the same time and waits indefinitely for the right one. 
-The problem models issues like deadlock, starvation, and resource contention. Several solutions exist, such as allowing only four philosophers to sit at the table at once, using an arbitrator process to grant permission, or imposing asymmetric behavior (e.g., some philosophers pick up the right chopstick first). 
+Several solutions exist, such as allowing only four philosophers to sit at the table at once, 
+using an arbitrator process to grant permission, or imposing asymmetric behavior (e.g., some philosophers pick up the right chopstick first). 
 The goal is to design a strategy using mutexes and semaphores that ensures no two adjacent philosophers eat at the same time, avoids deadlocks, and prevents starvation.
                         
 
