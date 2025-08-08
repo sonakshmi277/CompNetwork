@@ -26,7 +26,8 @@ and the consumer does not remove data when the buffer is empty,
 all while ensuring that both processes don’t access the buffer simultaneously, 
 which could lead to race conditions or data inconsistency. 
 To solve this, we typically use semaphores. 
-A semaphore named empty tracks the number of empty slots in the buffer, full tracks filled slots, and mutex ensures mutual exclusion when accessing the buffer. 
+Suppose there is a semaphore named 'empty' tracks the number of empty slots in the buffer, 
+while 'full' tracks filled slots, and mutex ensures mutual exclusion when accessing the buffer. 
 The producer waits if the buffer is full, locks the buffer, inserts data, then unlocks and signals the consumer. 
 Similarly, the consumer waits for available items, locks the buffer, removes the item,then unlocks and signals the producer. 
 This ensures smooth, deadlock-free synchronization between the two processes.
