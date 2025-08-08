@@ -3,7 +3,7 @@ among concurrent processes or threads to avoid conflicts and ensure data consist
 
 Conditions that require Synchronization:
 
-1. Critical condition: It is the part of the IPC where shared resources are accessed. 
+1. Critical section: It is the part of the IPC where shared resources are accessed. 
                        Only one process can execute the critical section at a given point of time.
                        If there are no shared resources, then no need of synchronization mechanisms.
 2. Race condition: It is a situation wherein processes are trying to access the critical section and the final result depends on the 
