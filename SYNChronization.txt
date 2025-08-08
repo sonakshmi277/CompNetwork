@@ -1,0 +1,95 @@
+Synchronization is the technique used to coordinate access to shared resources (like memory, files or CPU)
+among concurrent processes or threads to avoid conflicts and ensure data consistency.
+
+Conditions that require Synchronization:
+
+1. Critical condition: It is the part of the IPC where shared resources are accessed. 
+                       Only one process can execute the critical section at a given point of time.
+                       If there are no shared resources, then no need of synchronization mechanisms.
+2. Race condition: It is a situation wherein processes are trying to access the critical section and the final result depends on the 
+                   order in which they finish their update.  Process Synchronization mechanism need to ensure that instructions
+                    are being executed in a required order only.
+3. Pre Emption :  Preemption is when the operating system stops a running process to give the CPU to another process. 
+                  This allows the system to make sure that important tasks get enough CPU time. 
+                  This is important as mainly issues arise when a process has not finished its job on shared resource and got preempted. 
+                  The other process might end up reading an inconsistent value if process synchronization is not done.
+
+
+## CLASSIC PROBLEMS OF Synchronization
+
+1. PRODUCER CONSUMER PROBLEM
+
+The Producer-Consumer problem is a classic synchronization problem in operating systems where a producer process generates data and adds it to a shared bounded buffer, 
+while a consumer process removes and processes that data. 
+The challenge lies in making sure the producer does not add data when the buffer is full, 
+and the consumer does not remove data when the buffer is empty, 
+all while ensuring that both processes don’t access the buffer simultaneously, 
+which could lead to race conditions or data inconsistency. 
+To solve this, we typically use semaphores. 
+A semaphore named empty tracks the number of empty slots in the buffer, full tracks filled slots, and mutex ensures mutual exclusion when accessing the buffer. 
+The producer waits if the buffer is full, locks the buffer, inserts data, then unlocks and signals the consumer. 
+Similarly, the consumer waits for available items, locks the buffer, removes the item,then unlocks and signals the producer. 
+This ensures smooth, deadlock-free synchronization between the two processes.
+
+2. READERS WRITERS PROBLEM
+
+The Readers-Writers Problem is a classic synchronization problem in operating systems that deals with coordinating access to a shared resource (like a file or database) that is read and written by multiple processes. 
+The challenge is to allow multiple readers to read the data simultaneously (since reading doesn't affect the data), but to ensure that writers have exclusive access—meaning no other reader or writer should access the resource while it’s being written. 
+The main goal is to prevent data inconsistency and avoid race conditions. 
+This problem is typically solved using semaphores or mutexes. 
+The key is to allow multiple readers to enter the critical section when no writer is writing, but to block both readers and other writers when a writer is active. 
+There are different versions of the solution that either give priority to readers (risking writer starvation) or to writers (risking reader delay), depending on system requirements.
+
+There are mainly three classical approaches to solve the Readers-Writers Problem, depending on which type of process is prioritized. 
+The first approach is the Reader-Preference solution, where multiple readers can access the shared resource simultaneously, but writers must wait until all readers are done. 
+This approach is efficient when reading is more frequent, but it can cause writer starvation. 
+The second approach is the Writer-Preference solution, where writers are given priority. 
+If a writer is waiting, new readers are blocked—even if existing readers are still reading—ensuring that writers don't starve, but possibly delaying readers. 
+The third approach is the Fair (or no-starvation) solution, which ensures that neither readers nor writers starve. 
+This is usually implemented using queues or turn-based semaphores, ensuring requests are served in order. 
+Each approach uses a combination of mutex locks and semaphores to manage entry and access to the critical section based on the current active and waiting processes.
+
+3. DINING PHILOSOPHERS PROBLEM
+
+The Dining Philosophers Problem is a classic synchronization problem that illustrates the challenges of allocating limited resources (like CPU or memory) among multiple competing processes. 
+In this problem, five philosophers sit around a circular table, each alternating between thinking and eating. 
+In front of each philosopher is a chopstick, and to eat, a philosopher must pick up both the left and right chopsticks. 
+Since the chopsticks are shared, this can lead to deadlock if every philosopher picks up their left chopstick at the same time and waits indefinitely for the right one. 
+The problem models issues like deadlock, starvation, and resource contention. Several solutions exist, such as allowing only four philosophers to sit at the table at once, using an arbitrator process to grant permission, or imposing asymmetric behavior (e.g., some philosophers pick up the right chopstick first). 
+The goal is to design a strategy using mutexes and semaphores that ensures no two adjacent philosophers eat at the same time, avoids deadlocks, and prevents starvation.
+                        
+
+PETERSON'S ALGO
+
+Peterson’s Algorithm is a classic software-based solution to the critical section problem for two processes. 
+It provides a way to achieve mutual exclusion without using any hardware-level atomic operations like Test-and-Set. 
+The algorithm uses two shared variables: a boolean array flag[2], where each process indicates its intention to enter the critical section, and an integer turn, which indicates whose turn it is to enter the critical section. 
+When both processes want to enter at the same time, the turn variable ensures progress by giving one of them priority. 
+Peterson’s Algorithm satisfies all three conditions of a correct synchronization solution: mutual exclusion (only one process enters the critical section), progress (no process is unnecessarily delayed), and bounded waiting (each process gets a chance in finite time). 
+However, it only works reliably on modern processors if memory visibility is properly enforced, so in practice, it’s mostly used for theoretical understanding.
+
+LOCK VARIABLE
+
+A lock variable is one of the simplest synchronization mechanisms used to implement mutual exclusion in concurrent systems. 
+It is typically a shared variable, often a boolean or integer, used to indicate whether a critical section is currently being used by a process. 
+Before entering the critical section, a process checks the value of the lock variable. If it's free (e.g., 0 or false), the process sets it (to 1 or true) and proceeds. 
+After exiting the critical section, it resets the lock. 
+While this approach is conceptually simple, it has serious drawbacks—primarily due to race conditions. 
+If two processes check the lock at the same time and both see it as free, they might both enter the critical section simultaneously, violating mutual exclusion. 
+This happens because the check and the update are not atomic. 
+Therefore, lock variables alone are not reliable in multiprocessor systems without hardware support like Test-and-Set or atomic operations.
+
+
+Mutual exclusion: to ensure that only one process enters the critical section at a time.
+
+Test-and-Set: Test-and-Set is an atomic hardware-level instruction that ensures mutual exclusion by reading the value of a lock and writing to it in a single, uninterruptible step.
+              It allows only one process to enter the critical section at a time. 
+              If the lock is already taken, other processes keep checking (busy waiting) until it’s released. 
+              This atomicity helps prevent race conditions during concurrent access.
+
+Mutex: A mutex (short for mutual exclusion) is a synchronization primitive used to ensure that only one thread or process can access a critical section or shared resource at a time. 
+       It acts like a lock: when a thread wants to enter the critical section, it must acquire (lock) the mutex. 
+       If the mutex is already locked by another thread, the current thread must wait (block) until it becomes available. 
+       Once the thread finishes its task in the critical section, it releases (unlocks) the mutex so that other threads can proceed. 
+       Unlike spinlocks (which busy-wait), mutexes typically put the waiting thread to sleep, which is more efficient in multitasking systems.
+
