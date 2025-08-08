@@ -34,11 +34,13 @@ This ensures smooth, deadlock-free synchronization between the two processes.
 2. READERS WRITERS PROBLEM
 
 The Readers-Writers Problem is a classic synchronization problem in operating systems that deals with coordinating access to a shared resource (like a file or database) that is read and written by multiple processes. 
-The challenge is to allow multiple readers to read the data simultaneously (since reading doesn't affect the data), but to ensure that writers have exclusive access—meaning no other reader or writer should access the resource while it’s being written. 
+The challenge is to allow multiple readers to read the data simultaneously (since reading doesn't affect the data), 
+but to ensure that writers have exclusive access—meaning no other reader or writer should access the resource while it’s being written. 
 The main goal is to prevent data inconsistency and avoid race conditions. 
 This problem is typically solved using semaphores or mutexes. 
 The key is to allow multiple readers to enter the critical section when no writer is writing, but to block both readers and other writers when a writer is active. 
-There are different versions of the solution that either give priority to readers (risking writer starvation) or to writers (risking reader delay), depending on system requirements.
+There are different versions of the solution that either give priority to readers (risking writer starvation) or to writers (risking reader delay), 
+depending on system requirements.
 
 There are mainly three classical approaches to solve the Readers-Writers Problem, depending on which type of process is prioritized. 
 The first approach is the Reader-Preference solution, where multiple readers can access the shared resource simultaneously, but writers must wait until all readers are done. 
