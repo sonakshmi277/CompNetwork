@@ -1,0 +1,29 @@
+Transmission media:
+    Transmission media refers to the general concept of how data is transported between sender and receiver.
+    A transmission medium is the actual physical path or channel used to transmit the data.
+    
+Transmission medium is subdivided into:
+    1. Guided Media :
+            Data signals are guided along a physical path.
+            Types:
+                1.1. TWISTED PAIR CABLE:
+                    Generally contains collection of two copper wires twisted around each other.
+                        Further divided into: 
+                            SHIELDED TWISTED PAIR:
+                                Consists of twisted pair cables enclosed in an external shield 
+                                (foil or braided copper) to reduce electromagnetic interference (EMI) 
+                                and crosstalk. It provides better performance at higher data rates and 
+                                is commonly used in environments where the possibility of noise is very 
+                                high, such as industrial areas or near heavy electrical equipment.
+
+                            UNSHIELDED TWISTED PAIR:
+                                Contains collection of twisted pair cable with no external shield.
+                                Unshielded Twisted Pair (UTP), on the other hand, consists of twisted pair 
+                                cables without any external shielding. It relies solely on the twisting of 
+                                wires to minimize interference. UTP is cheaper, lighter, and easier to 
+                                install than STP.
+                                used in- home and office lines. telephone lines
+
+    2. Unguided Media :
+        Data signals are transmitted through air, water and vaccum without any physical conductor.
+        

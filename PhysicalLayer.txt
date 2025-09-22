@@ -1,0 +1,11 @@
+1. What is physical layer?
+    The Physical Layer is the first layer of the OSI (Open Systems Interconnection) model. 
+    It is responsible for the actual transmission of raw data bits (0s and 1s) over the communication medium.
+    It defines the electrical, mechanical, and procedural characteristics of data transmission:
+        Electrical → Specifies how data bits are represented as signals (e.g., voltage levels, light pulses, 
+        radio waves).
+        Mechanical → Defines the physical medium for transmission.
+        Procedural → Defines the rules for establishing, maintaining, and terminating the physical connection 
+        between the sender and receiver over the transmission medium.
+    In short, the physical layer ensures that the bits from one device can be transmitted and correctly 
+    received by another device through the chosen medium.          
