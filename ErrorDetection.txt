@@ -1,0 +1,36 @@
+WHY ERROR CONTROL IS NEEDED
+
+    Data can get corrupted, lost, or duplicated due to noise, interference, or faulty transmission.
+    Without error control, the receiver may end up with wrong or incomplete data.
+
+TWO MAIN PARTS OF ERROR CONTROL
+    Error Detection:
+        Find out if any error occurred.
+        Common techniques: Parity Check, Checksum, CRC (Cyclic Redundancy Check).
+        Only detects errors, does not fix them.
+    Error Correction
+        Fixes the errors and reconstructs original data.
+        Two methods:
+            Forward Error Correction (FEC): Redundant bits are sent so receiver corrects errors itself (e.g., Hamming Code).
+            Backward Error Correction (ARQ): Receiver asks sender to resend if errors are detected.
+                A METHOD OF BACKWARD ERROR CORRECTION IS ARQ (AUTOMATIC REPEAT REQUEST)
+                    The Data Link Layer mainly uses ARQ protocols for error control.
+                    1. Stop-and-Wait ARQ
+                        Sender sends one frame at a time.
+                        Waits for ACK (Acknowledgment) before sending the next frame.
+                        If no ACK within timeout → frame is retransmitted.
+                        Simple but slow (low efficiency because sender stays idle while waiting).
+                    2. Sliding Window ARQ
+                        Used for continuous transmission to improve efficiency.
+                        (a) Go-Back-N ARQ
+                            Sender can send multiple frames (window size = N) before waiting for ACK.
+                            If an error is found in frame i, then all frames from i onwards are retransmitted.
+                            Receiver only accepts frames in order.
+                                ✅ Easier to implement. 
+                                ❌ Wastes bandwidth (retransmits even correct frames).
+                        (b) Selective Repeat ARQ
+                            Sender can also send multiple frames.
+                            If an error occurs in frame i, only that frame is retransmitted.
+                            Receiver can accept out-of-order frames and buffer them until the missing one arrives.
+                                ✅ More efficient (less retransmission).    
+                                ❌ More complex (requires buffering + per-frame ACK).
