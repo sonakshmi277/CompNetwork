@@ -1,0 +1,74 @@
+NETWORK TOPOLOGY (DEFI):
+    Network topology is the arrangement of devices (nodes) and connections (links) in a computer network.
+    It shows how computers, servers, and other devices are connected and how data flows between them. 
+    There are two main types of topology:
+        Physical Topology: The actual physical layout of cables and devices.
+        Logical Topology: How data moves across the network, regardless of the physical layout.
+    Choosing the right topology is very important because it directly affects the performance, cost, reliability, scalability, and security of 
+    the network.
+
+    POINT-TO-POINT TOPOLOGY:
+        Point-to-Point topology is the simplest form of network topology.
+        It establishes a direct connection between two nodes, where one acts as the sender and the other as the receiver. 
+        This setup provides high bandwidth and reliable communication between the two nodes. 
+        However, it is limited to only two devices.
+    MESH TOPOLOGY:
+        In a mesh topology, every device is connected to every other device through dedicated links. These links are known as channels.
+        If there are N devices, then each device requires N–1 ports to connect with others.
+        The total number of dedicated links required is N × (N–1)/2.
+        Advantages:
+            Provides very fast and reliable communication.
+            Highly robust and fault-tolerant, since multiple paths exist.
+            Security and privacy are high because data travels via dedicated channels.
+            Easy to diagnose faults.
+        Disadvantages:
+            Installation and configuration are complex.
+            Requires a large amount of cabling, so cost is very high.
+            Maintenance is also expensive.
+        Example: Internet backbone, military communication systems, and aircraft navigation networks.
+    STAR TOPOLOGY:
+        In a star topology, all devices are connected to a central hub or switch. 
+        The hub can be:
+            Passive: Simply forwards signals (like broadcasting).
+            Active: Contains repeaters and can regenerate signals.
+        Advantages:
+            Easy to set up and expand.
+            Requires only one port per device.
+            Robust: If one link fails, only that device is affected.
+            Fault isolation is simple.
+            Cost-effective since inexpensive cables like coaxial or RJ-45 are used.
+        Disadvantages:
+            The central hub is a single point of failure; if it fails, the whole network collapses. 
+            Installation cost is higher compared to bus.
+            Performance depends heavily on the hub.
+        Example: Local Area Networks (LANs) in offices and wireless networks with a central access point.
+    BUS TOPOLOGY:
+        In a bus topology, all devices are connected to a single backbone cable. Data is transmitted in both directions.
+        Advantages:
+            Requires only one main cable (backbone), plus drop lines for each device.
+            Cost of cabling is low compared to mesh and star.
+            Well-known technology with easy installation.
+        Disadvantages:
+            If the backbone fails, the entire network fails.
+            Performance decreases as network traffic increases due to collisions.
+            Adding new devices slows down the network.
+            Low security.
+        Example: Early Ethernet networks, and cable TV networks.
+    RING TOPOLOGY:
+        In a ring topology, each device is connected to exactly two neighboring devices, forming a circular path. 
+        Data travels in one direction (unidirectional) unless a dual ring is used.
+        A token passing protocol is often used, where a special frame called a token circulates around the ring. 
+        A device can only transmit data if it holds the token.
+    TREE TOPOLOGY:
+        Tree topology is a variation of star topology, where multiple star networks are arranged in a hierarchical manner.
+        A central hub connects to secondary hubs, which in turn connect to devices.
+        Data flows either top-to-bottom (from central hub down to devices) or bottom-to-top.
+        Example: Organizational hierarchy in companies, where the CEO is the root, department heads are intermediate hubs, and employees are leaf nodes.
+    HYBRID TOPOLOGY:
+        Hybrid topology combines two or more different topologies, depending on requirements. 
+        For example, a star-bus hybrid or star-ring hybrid.
+        Example: University campus networks, where the backbone may use star topology, while individual buildings may use bus or ring internally.
+    
+    
+
+

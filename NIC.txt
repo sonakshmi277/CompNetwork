@@ -1,0 +1,9 @@
+A NIC (Network Interface Card) is a hardware component inside your computer/device that makes it possible to send and receive data to/from another 
+computer over a network.
+Functions of NIC (simplified):
+    Connects your device to the network medium (cable or Wi-Fi).
+    Converts data from computer format → into signals that can travel over the medium.
+    Frames data (adds MAC address, error check, etc.).
+    Identifies destination using MAC address.
+    Receives incoming data and delivers it to your computer.
+
