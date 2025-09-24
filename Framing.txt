@@ -1,0 +1,33 @@
+FRAMING
+    The Data Link Layer (DLL) receives a stream of bits from the network layer. 
+    But a stream of bits alone has no boundaries—the receiver wouldn't know where one message ends and the next begins.
+    Solution: DLL groups the bits into frames.
+
+    A frame contains:
+
+        Header – source & destination addresses, control info.
+        Payload – actual data from the network layer.
+        Trailer – error detection codes like CRC or checksum.
+
+TYPES OF FRAMING
+    A. Fixed-Size Framing
+        Frames are of predefined, fixed length.
+        No start/end delimiter needed; receiver knows size in advance.
+        Problem: If data is smaller than frame → wasted space (internal fragmentation).
+        Solution: Padding is added to fill the frame.
+        Example: ATM networks often used fixed-size cells.
+    B. Variable-Size Framing
+        Frames can vary in size.
+        Requires explicit boundary markers so the receiver can detect start/end.
+        
+        Two main techniques:
+            1. Length Field
+                A field in the header specifies frame size.
+                Receiver reads the length field → knows exactly how many bits/bytes to read.
+                Problem: If the length field is corrupted → frame cannot be parsed.
+
+            2. End Delimiter (ED)
+                A unique pattern marks the end of the frame.
+                Problem: ED pattern may appear in actual data → receiver may misinterpret the end of the frame.
+                Solution: Stuffing (character(character oriented protocols) and bit(bit oriented protocols) stuffing).
+        
