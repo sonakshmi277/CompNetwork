@@ -1,0 +1,40 @@
+WHAT IS FLOW CONTROL
+    Flow control is about matching the speed of sender and receiver.
+    If the sender is very fast and the receiver is slow (or has a small buffer), then without flow control → buffer overflow + data loss.
+    DLL ensures the receiver doesn’t get overwhelmed.
+
+    Think of it like water in a pipe: if you pour too fast, the bucket overflows. Flow control = regulating flow to avoid overflow.
+
+APPROACHES TO FLOW CONTROL
+    1. Feedback-based flow control
+        Receiver sends an ACK (acknowledgment) after processing a frame.
+        Sender waits before sending the next one.
+        Ensures synchronization, but throughput is limited by round-trip ACK delay.
+    2. Rate-based flow control
+        No explicit ACKs.
+        Sender adjusts its rate automatically (based on protocol rules).
+        Used where feedback is costly/unavailable (e.g., high-latency satellite links).
+
+TECHNIQUES OF FLOW CONTROL
+    1. Stop-and-Wait Flow Control
+        Sender → sends 1 frame, then waits for ACK.
+        After ACK, next frame is sent.
+        Process repeats until transmission ends.
+
+        Properties:
+            Simple, reliable.
+            Very inefficient for long-distance or high-speed networks (lots of waiting).
+    2.  Sliding Window Flow Control
+        Both sender and receiver maintain a window size (N).
+        Sender can send up to N frames without waiting for ACKs.
+        Receiver acknowledges as it processes.
+        When ACK is received, the window “slides forward”, allowing new frames to be sent.
+
+        Properties:
+            Efficient, high throughput, better channel utilization.
+            More complex to implement (requires sequence numbers, buffers).
+
+NOTE: RELATION WITH ERROR CONTROL
+    Stop-and-Wait ARQ and Sliding Window ARQ (Go-Back-N, Selective Repeat) are not just error control, but also flow control techniques.
+    That's why flow control + error control often go hand in hand in DLL protocols.
+

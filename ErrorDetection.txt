@@ -1,5 +1,4 @@
 WHY ERROR CONTROL IS NEEDED
-
     Data can get corrupted, lost, or duplicated due to noise, interference, or faulty transmission.
     Without error control, the receiver may end up with wrong or incomplete data.
 
