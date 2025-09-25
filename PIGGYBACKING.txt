@@ -1,0 +1,9 @@
+In bidirectional communication (full-duplex), both sender and receiver send data to each other.
+Normally, each side also needs to send ACKs (acknowledgments) separately.
+Piggybacking = Instead of sending an ACK as a separate frame, the ACK is attached to the next outgoing data frame.
+So → one frame carries both DATA + ACK, saving bandwidth.
+
+Example:
+
+    A → B: sends data.
+    B has to send its own data back to A. Instead of sending a separate ACK, B piggybacks the ACK inside its data frame.

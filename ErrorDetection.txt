@@ -32,4 +32,4 @@ TWO MAIN PARTS OF ERROR CONTROL
                             If an error occurs in frame i, only that frame is retransmitted.
                             Receiver can accept out-of-order frames and buffer them until the missing one arrives.
                                 ✅ More efficient (less retransmission).    
-                                ❌ More complex (requires buffering + per-frame ACK).
+                                ❌ More complex 
