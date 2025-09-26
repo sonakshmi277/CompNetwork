@@ -1,0 +1,29 @@
+NETWORK LAYER
+    The Network Layer is responsible for source-to-destination delivery of data across multiple networks. 
+    Unlike the Data Link Layer (which only handles hop-to-hop delivery between directly connected devices), 
+    the Network Layer ensures that the packet travels through intermediate routers until it reaches the correct destination device.
+
+FUNCTIONS OF THE NETWORK LAYER
+    1. Logical Addressing (IP Addressing):
+        Every device gets a unique IP address at this layer.
+        Unlike MAC (Data Link Layer) addresses that are local and physical, IP addresses allow identification of devices across 
+        different networks.
+    2. Routing
+        The layer determines the best path for the packet to travel.
+        Routing algorithms and protocols (like RIP, OSPF, BGP) help routers build routing tables.
+        Ensures efficient delivery even if multiple paths exist.
+    3. Forwarding
+        Once the best path is chosen, the packet is forwarded to the correct output interface of the router.
+        This is the actual act of moving the packet closer to its destination.
+    4. Packetizing (Encapsulation)
+        The Network Layer encapsulates the segment (from Transport Layer) into a packet (often called a datagram in IP context).
+        Adds headers containing source IP, destination IP, and other info.
+    5. Fragmentation and Reassembly
+        If a packet is too large for a network’s MTU (Maximum Transmission Unit), it is fragmented into smaller packets.
+        At the destination, the fragments are reassembled to reconstruct the original data.
+    6. Host-to-Host Delivery
+        Ensures that data actually reaches the correct end device, not just the next router.
+    7. Subnetting & NAT
+        Subnetting: Divides large networks into smaller manageable networks.
+        NAT: Converts private IPs into a public IP to allow Internet communication.
+    
