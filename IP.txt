@@ -1,0 +1,7 @@
+Internet Protocol (IP) is like a set of rules that devices follow to communicate over a network. 
+It decides how data is sent, addressed, and delivered from one device to another.
+
+IP adress is just the part of the system
+
+TYPES OF IP Addressing:
+    
