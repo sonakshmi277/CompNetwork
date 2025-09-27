@@ -28,3 +28,13 @@ TYPES OF IP Addressing:
         Static IP: Permanently assigned; used for servers or devices requiring consistent address.
         Dynamic IP: Temporarily assigned by DHCP; common for consumer devices
     
+Suppose you want to send data (like an email) from Kolkata to New York. First, your device in Kolkata gets a private IP address from your 
+router using DHCP (Dynamic Host Configuration Protocol). This private IP allows your device to communicate within your local network, 
+but it cannot travel across the internet. To send data outside the network, the router uses NAT (Network Address Translation),
+ which maps your private IP to the public IP of your network.
+Once your data has a public IP, it is broken into packets, each containing a header with the source IP (your public IP) and the destination 
+IP (New York server). These packets are routed through multiple intermediate routers, which read the destination IP and forward each packet 
+along the optimal path to the server in New York.
+When the server receives all the packets, it reassembles them into the original data and sends an acknowledgement back to your public IP. 
+When the acknowledgement reaches your router in Kolkata, NAT converts the public IP back to your private IP, so your device can receive it. 
+This is how communication using IP addresses, DHCP, NAT, and routers works across networks.
