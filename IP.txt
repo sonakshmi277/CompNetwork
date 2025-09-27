@@ -4,4 +4,27 @@ It decides how data is sent, addressed, and delivered from one device to another
 IP adress is just the part of the system
 
 TYPES OF IP Addressing:
+    1. Based on Addressing Scheme: IPv4 vs IPv6
+        IPv4:
+            Length:32 bits
+            Allows 4.3 billion unique addresses
+            4 octets
+            octet 1-3 indicates the network,rest (last) indicates the host which is useful or router to get to know "in which network i have to 
+            send data and to which device"
+        IPv6:
+            Length:128 bits
+            allows way more unique addresses than IPv4
+            8 grps of hexadecimal degits separated by colons
+    2. Based on usage: Private and public
+        Public IP address:  
+            Unique globally, assigned by ISP's (Internet service providers)
+            Accessible from anywhere on the internet unless blocked by firewalls
+            Can be static (permanent) or dynamic (changes over time)
+            used for servers, websites or any other device needing internet access.
+        Private IP address:
+            Used in private networks (home, office); not routable on the internet
+            Must be unique only within the local network
+    3. Based on assignment:
+        Static IP: Permanently assigned; used for servers or devices requiring consistent address.
+        Dynamic IP: Temporarily assigned by DHCP; common for consumer devices
     
