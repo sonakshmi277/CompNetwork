@@ -38,3 +38,4 @@ NOTE: RELATION WITH ERROR CONTROL
     Stop-and-Wait ARQ and Sliding Window ARQ (Go-Back-N, Selective Repeat) are not just error control, but also flow control techniques.
     That's why flow control + error control often go hand in hand in DLL protocols.
 
+

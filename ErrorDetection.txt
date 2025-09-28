@@ -33,3 +33,6 @@ TWO MAIN PARTS OF ERROR CONTROL
                             Receiver can accept out-of-order frames and buffer them until the missing one arrives.
                                 ✅ More efficient (less retransmission).    
                                 ❌ More complex 
+                    
+                    
+                    
