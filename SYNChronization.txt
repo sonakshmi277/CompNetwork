@@ -83,7 +83,6 @@ If two processes check the lock at the same time and both see it as free, they m
 This happens because the check and the update are not atomic. 
 Therefore, lock variables alone are not reliable in multiprocessor systems without hardware support like Test-and-Set or atomic operations.
 
-
 Mutual exclusion: to ensure that only one process enters the critical section at a time.
 
 Test-and-Set: Test-and-Set is an atomic hardware-level instruction that ensures mutual exclusion by reading the value of a lock and writing to it in a single, uninterruptible step.
